@@ -1,5 +1,5 @@
 # Command-Line-Chess
-Basic chess application in C++ that runs in your command line.
+Basic 2-player chess application that runs in your command line.
 
 ## Build
 Run `make` to build the program. Execute `game` to play.
