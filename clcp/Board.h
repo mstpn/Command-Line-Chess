@@ -1,5 +1,4 @@
 /******************************************************************************
- Name: Matthew Stepan
  File name: Board.h
  ******************************************************************************/
 #ifndef BOARD_H
@@ -8,10 +7,13 @@
 class Board;
 #include "Piece.h"
 #include <iostream>
+#include "ioutil.h"
+
 using namespace std;
 
 #define MAXROWS 8
 #define MAXCOLS 8
+#define NULLCHAR '\0'
 
 typedef Piece* PiecePtr;
 
@@ -329,12 +331,16 @@ Return:
 private:
     PiecePtr grid[MAXROWS][MAXCOLS];
 
-    void initBoard();
-    void clearBoard();
-    void copyBoard(const Board& other);
     bool canMove (int fromX, int fromY, int toX, int toY) const;
     PiecePtr getSquare(int x, int y) const;
     void writeLine(ostream& out) const;
+
+public:
+    void initBoard();
+    void clearBoard();
+    void boardToFEN(char fen[100], bool turn);
+    int boardEval(bool turn);
+    void copyBoard(const Board& other);
 };
 
 ostream& operator<< (ostream& out, const Board& b);

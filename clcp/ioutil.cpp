@@ -228,3 +228,26 @@ void flush()
 
   return;
 }
+
+void redStr(char str[20])
+{
+    char backup[100];
+    strcpy(backup, str);
+    strcpy(str, "\x1B[31m");
+    strcat(str, backup);
+    strcat(str, "\033[0m");
+
+    return;
+}
+
+void whiteBG(char str[100])
+{
+    char backup[100];
+    strcpy(backup, str);
+    strcpy(str, "\033[1;47;35m");
+    strcat(str, backup);
+    strcat(str, "\033[0m");
+    // strcat(str,'\0');
+
+    return;
+}

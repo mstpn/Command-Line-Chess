@@ -4,6 +4,7 @@
 */
 #ifndef IOUTIL_H
 #define IOUTIL_H
+#include "Board.h"
 
 /*
 Function: readInt
@@ -107,5 +108,18 @@ Details:
 */
 void readString(const char prompt[], char str[],
                 int maxlen, int minlen, bool& eof);
+
+
+// Current state of the board
+struct BoardState
+{
+	char board[8][8];
+	bool turn;
+	bool humanColour;
+};
+
+// https://stackoverflow.com/questions/4053837/colorizing-text-in-the-console-with-c
+void redStr(char str[20]);
+void whiteBG(char str[100]);
 
 #endif
